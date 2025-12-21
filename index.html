@@ -3,10 +3,530 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clarify - Coming Soon</title>
+    <title>Clarify - あなただけのジャーナル</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #04132C;
+            color: #ECD2A7;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: rgba(4, 19, 44, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(236, 210, 167, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #ECD2A7;
+        }
+
+        nav a {
+            margin-left: 2rem;
+            color: #ECD2A7;
+            text-decoration: none;
+            font-weight: 400;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: 3px;
+            line-height: 1.3;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+        }
+
+        /* Message Section */
+        .message-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #04132C 0%, #082048 100%);
+        }
+
+        .message-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .message-block {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .message-block.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .message-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #ECD2A7;
+        }
+
+        .message-text {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 2;
+            color: rgba(236, 210, 167, 0.9);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 6rem 2rem;
+            background-color: #04132C;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 4rem;
+            letter-spacing: 2px;
+        }
+
+        .carousel-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .screenshot-frame {
+            max-width: 400px;
+            width: 100%;
+            background: #082048;
+            border-radius: 20px;
+            padding: 1rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .screenshot-frame img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+
+        .carousel-btn {
+            background: #082048;
+            color: #ECD2A7;
+            border: 2px solid #ECD2A7;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn:hover {
+            background: #ECD2A7;
+            color: #04132C;
+            transform: scale(1.1);
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(236, 210, 167, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: #ECD2A7;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #04132C 0%, #082048 100%);
+            text-align: center;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: #ECD2A7;
+            color: #04132C;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(236, 210, 167, 0.3);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(236, 210, 167, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            background-color: #04132C;
+            border-top: 1px solid rgba(236, 210, 167, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .message-title {
+                font-size: 1.5rem;
+            }
+
+            .message-text {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            nav a {
+                margin-left: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 5rem 1rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            nav a {
+                margin-left: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Clarify</h1>
-    <p>近日公開予定</p>
+    <header>
+        <div class="header-content">
+            <div class="logo">Clarify</div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#features">Features</a>
+                <a href="#contact">Contact</a>
+                <a href="privacy.html">Privacy</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>答えは、自分の中に。</h1>
+            <p class="hero-subtitle">ようこそ、あなたのClarifyへ。</p>
+        </div>
+    </section>
+
+    <section class="message-section" id="about">
+        <div class="message-container">
+            <div class="message-block">
+                <h2 class="message-title">誰かと比べてばかりいませんか？</h2>
+                <p class="message-text">本当に大切なものは、いつもあなたの内側にあります。</p>
+            </div>
+
+            <div class="message-block">
+                <h2 class="message-title">小さな気づきが、大きな変化をつくる。</h2>
+                <p class="message-text">今日感じたこと。ちょっとした発見。<br>そんな小さな一歩の積み重ねが、あなたらしい未来の道になります。</p>
+            </div>
+
+            <div class="message-block">
+                <h2 class="message-title">自分を知ることが、自分を成長させる。</h2>
+                <p class="message-text">感情のパターンを理解する。<br>心の声に耳を傾ける。<br>日々の振り返りが、なりたい自分への大切な一歩になります。</p>
+            </div>
+
+            <div class="message-block">
+                <h2 class="message-title">変わりゆく世界で、変わらないもの。</h2>
+                <p class="message-text">時代がどれだけ変わっても、あなたの心はいつもあなたと共にあります。</p>
+            </div>
+
+            <div class="message-block">
+                <h2 class="message-title">さあ、あなただけのジャーナルを始めましょう。</h2>
+                <p class="message-text">ようこそ、あなたのClarifyへ。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" id="features">
+        <h2 class="section-title">主要機能</h2>
+        <div class="carousel-container">
+            <div class="carousel-wrapper" id="carousel">
+                <div class="carousel-slide">
+                    <div class="screenshot-frame">
+                        <img src="screenshots/screenshot1.png" alt="Clarify Screenshot 1">
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="screenshot-frame">
+                        <img src="screenshots/screenshot2.png" alt="Clarify Screenshot 2">
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="screenshot-frame">
+                        <img src="screenshots/screenshot3.png" alt="Clarify Screenshot 3">
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="screenshot-frame">
+                        <img src="screenshots/screenshot4.png" alt="Clarify Screenshot 4">
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="screenshot-frame">
+                        <img src="screenshots/screenshot5.png" alt="Clarify Screenshot 5">
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="screenshot-frame">
+                        <img src="screenshots/screenshot6.png" alt="Clarify Screenshot 6">
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="screenshot-frame">
+                        <img src="screenshots/screenshot7.png" alt="Clarify Screenshot 7">
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="screenshot-frame">
+                        <img src="screenshots/screenshot8.png" alt="Clarify Screenshot 8">
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-btn" id="prevBtn">←</button>
+                <div class="carousel-dots" id="dots"></div>
+                <button class="carousel-btn" id="nextBtn">→</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <h2 class="section-title">お問い合わせ</h2>
+        <p style="margin-bottom: 2rem; font-size: 1.1rem;">ご質問やご意見がございましたら、お気軽にお問い合わせください。</p>
+        <a href="https://forms.gle/zvhvebVQA8b4FgUf9" target="_blank" class="contact-btn">お問い合わせフォーム</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Clarify. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for message blocks
+        const messageBlocks = document.querySelectorAll('.message-block');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        messageBlocks.forEach(block => observer.observe(block));
+
+        // Carousel functionality
+        const carousel = document.getElementById('carousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dotsContainer = document.getElementById('dots');
+        const totalSlides = 8;
+        let currentSlide = 0;
+
+        // Create dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+
+        const dots = document.querySelectorAll('.dot');
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Touch support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) nextSlide();
+            if (touchEndX - touchStartX > 50) prevSlide();
+        });
+
+        // Auto-advance carousel
+        setInterval(nextSlide, 5000);
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
