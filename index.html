@@ -128,10 +128,87 @@
             color: rgba(236, 210, 167, 0.9);
         }
 
-        /* Features Section */
-        .features-section {
+        /* Feature Details Section - DayOne Style */
+        .feature-details-section {
             padding: 6rem 2rem;
             background-color: #04132C;
+        }
+
+        .feature-item {
+            max-width: 1200px;
+            margin: 0 auto 8rem auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .feature-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .feature-item:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .feature-content {
+            padding: 2rem;
+        }
+
+        .feature-content h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #ECD2A7;
+            line-height: 1.4;
+        }
+
+        .feature-content p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.9;
+            color: rgba(236, 210, 167, 0.85);
+        }
+
+        .feature-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .feature-image-frame {
+            max-width: 350px;
+            width: 100%;
+            background: #082048;
+            border-radius: 20px;
+            padding: 1rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-image-frame:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-image-frame img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+
+        /* Features Section - Carousel */
+        .features-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #082048 0%, #04132C 100%);
         }
 
         .section-title {
@@ -275,6 +352,31 @@
         }
 
         /* Responsive */
+        @media (max-width: 968px) {
+            .feature-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-bottom: 5rem;
+            }
+
+            .feature-item:nth-child(even) {
+                direction: ltr;
+            }
+
+            .feature-content {
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .feature-content h3 {
+                font-size: 1.8rem;
+            }
+
+            .feature-content p {
+                font-size: 1.1rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -304,6 +406,14 @@
             .logo {
                 font-size: 1.5rem;
             }
+
+            .feature-content h3 {
+                font-size: 1.6rem;
+            }
+
+            .feature-content p {
+                font-size: 1rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -327,6 +437,18 @@
 
             nav a {
                 margin-left: 0;
+            }
+
+            .feature-content h3 {
+                font-size: 1.4rem;
+            }
+
+            .feature-details-section {
+                padding: 3rem 1rem;
+            }
+
+            .feature-item {
+                margin-bottom: 3rem;
             }
         }
     </style>
@@ -354,7 +476,7 @@
     <section class="message-section" id="about">
         <div class="message-container">
             <div class="message-block">
-                <h2 class="message-title">誰かと比べてばかりいませんか？</h2>
+                <h2 class="message-title">誰かと比べてばかりいませんか?</h2>
                 <p class="message-text">本当に大切なものは、いつもあなたの内側にあります。</p>
             </div>
 
@@ -380,7 +502,95 @@
         </div>
     </section>
 
-    <section class="features-section" id="features">
+    <!-- New Feature Details Section - DayOne Style -->
+    <section class="feature-details-section" id="features">
+        <div class="feature-item">
+            <div class="feature-content">
+                <h3>自分と向き合う様々なフォーマット</h3>
+                <p>1日の朝はポジティブに開始し、1日の終わりに振り返ることでリセット</p>
+            </div>
+            <div class="feature-image">
+                <div class="feature-image-frame">
+                    <img src="./screenshot2.png" alt="様々なフォーマット" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x800/082048/ECD2A7?text=Format';">
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-content">
+                <h3>一人の時どれだけ正直になれる?</h3>
+                <p>思考・言語化をサポート</p>
+            </div>
+            <div class="feature-image">
+                <div class="feature-image-frame">
+                    <img src="./screenshot3.png" alt="思考のサポート" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x800/082048/ECD2A7?text=Support';">
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-content">
+                <h3>Burn your negatives</h3>
+                <p>不安なこと、心配なこと、嫌だったことは思いっきり書いて燃やしてみよう</p>
+            </div>
+            <div class="feature-image">
+                <div class="feature-image-frame">
+                    <img src="./screenshot4.png" alt="ネガティブを燃やす" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x800/082048/ECD2A7?text=Burn';">
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-content">
+                <h3>凝りたい時は好きなだけ凝れる</h3>
+                <p>お好きな色、100以上のフォント、サイズ、揃え方、行間などお好きなように</p>
+            </div>
+            <div class="feature-image">
+                <div class="feature-image-frame">
+                    <img src="./screenshot8.png" alt="カスタマイズ" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x800/082048/ECD2A7?text=Customize';">
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-content">
+                <h3>タグで整理、あとで検索できる</h3>
+                <p>なんでもページは、タグで自分好みに整理</p>
+            </div>
+            <div class="feature-image">
+                <div class="feature-image-frame">
+                    <img src="./screenshot6.png" alt="タグで整理" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x800/082048/ECD2A7?text=Tags';">
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-content">
+                <h3>あなたのアクティビティは、未来に繋がる</h3>
+                <p>毎日の思考や振り返りは未来に直結します</p>
+            </div>
+            <div class="feature-image">
+                <div class="feature-image-frame">
+                    <img src="./screenshot7.png" alt="未来への繋がり" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x800/082048/ECD2A7?text=Activity';">
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-content">
+                <h3>毎日のアクティビティを可視化</h3>
+                <p>あなたがよく使う傾向の言葉から、気分や感情の傾向までグラフやデータで見える化します</p>
+            </div>
+            <div class="feature-image">
+                <div class="feature-image-frame">
+                    <img src="./screenshot9.png" alt="データの可視化" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x800/082048/ECD2A7?text=Analytics';">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Original Carousel Section -->
+    <section class="features-section">
         <h2 class="section-title">主要機能</h2>
         <div class="carousel-container">
             <div class="carousel-wrapper" id="carousel">
@@ -455,6 +665,18 @@
         }, { threshold: 0.2 });
 
         messageBlocks.forEach(block => observer.observe(block));
+
+        // Intersection Observer for feature items
+        const featureItems = document.querySelectorAll('.feature-item');
+        const featureObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        featureItems.forEach(item => featureObserver.observe(item));
 
         // Carousel functionality
         const carousel = document.getElementById('carousel');
