@@ -223,9 +223,9 @@
 
         .essential-card {
             text-align: center;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .essential-card.visible {
@@ -239,7 +239,10 @@
             padding: 1.5rem;
             margin-bottom: 2rem;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease;
+        
+            /* ↓ 追加 */
+            width: 100%;
+            max-width: 280px;
         }
 
         .essential-image-wrapper:hover {
@@ -255,6 +258,9 @@
 
         .essential-content {
             padding: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .essential-title {
@@ -262,10 +268,13 @@
             font-weight: 700;
             margin-bottom: 1rem;
             color: #ECD2A7;
-            background: #082048;
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
+        
+            /* ↓ 削除 or 無効化 */
+            background: none;
+            padding: 0;
+            border-radius: 0;
+            display: block;
+            text-align: center;
         }
 
         .essential-description {
