@@ -207,10 +207,78 @@
             display: block;
         }
 
+        /* Daily Essentials Section */
+        .daily-essentials-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #082048 0%, #04132C 100%);
+        }
+
+        .essentials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .essential-card {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .essential-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .essential-image-wrapper {
+            background: #082048;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .essential-image-wrapper:hover {
+            transform: translateY(-10px);
+        }
+
+        .essential-image-wrapper img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .essential-content {
+            padding: 0 1rem;
+        }
+
+        .essential-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ECD2A7;
+            background: #082048;
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+        }
+
+        .essential-description {
+            font-size: 1.05rem;
+            font-weight: 300;
+            line-height: 1.8;
+            color: rgba(236, 210, 167, 0.9);
+        }
+
         /* Features Section - Carousel */
         .features-section {
             padding: 6rem 2rem;
-            background: linear-gradient(180deg, #082048 0%, #04132C 100%);
+            background: linear-gradient(180deg, #04132C 0%, #082048 100%);
         }
 
         .section-title {
@@ -355,6 +423,11 @@
 
         /* Responsive */
         @media (max-width: 968px) {
+            .essentials-container {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
             .feature-item {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -588,6 +661,42 @@
             <div class="feature-image">
                 <div class="feature-image-frame">
                     <img src="./screenshot9.png" alt="データの可視化" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x800/082048/ECD2A7?text=Analytics';">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Essentials Section -->
+    <section class="daily-essentials-section">
+        <h2 class="section-title">デイリーエッセンシャル</h2>
+        <div class="essentials-container">
+            <div class="essential-card">
+                <div class="essential-image-wrapper">
+                    <img src="./Daily_Essentials.png" alt="Daily Essentials" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x600/082048/ECD2A7?text=Daily+Essentials';">
+                </div>
+                <div class="essential-content">
+                    <h3 class="essential-title">Daily Essentials</h3>
+                    <p class="essential-description">一日の始まりは3分間のその日の準備で始め、一日の終わりは簡単な振り返りで締めくくりましょう。人生をコントロールする一歩目になります。</p>
+                </div>
+            </div>
+
+            <div class="essential-card">
+                <div class="essential-image-wrapper">
+                    <img src="./Free_writing.png" alt="Free Writing" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x600/082048/ECD2A7?text=Free+Writing';">
+                </div>
+                <div class="essential-content">
+                    <h3 class="essential-title">Free Writing</h3>
+                    <p class="essential-description">頭の中にあることを自由形式で記述できます。フォーマットがあった方が良い時は、お好きなフォーマットを活用できます。</p>
+                </div>
+            </div>
+
+            <div class="essential-card">
+                <div class="essential-image-wrapper">
+                    <img src="./Tags.png" alt="Organized by Tags" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x600/082048/ECD2A7?text=Tags';">
+                </div>
+                <div class="essential-content">
+                    <h3 class="essential-title">Organized by Tags</h3>
+                    <p class="essential-description">自分で描いたジャーナル（メモ・日記）には、自分でお好きなようにタグをつけることができます。タグごとで表示したり、タグで検索をしたりできます。</p>
                 </div>
             </div>
         </div>
