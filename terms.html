@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用規約 | Clarify</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./Clarify_Favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./Clarify_Favicon.png">
+    <link rel="apple-touch-icon" href="./Clarify_Favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #04132C;
+            color: #ECD2A7;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: rgba(4, 19, 44, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(236, 210, 167, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+        }
+        
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        nav a {
+            margin-left: 2rem;
+            color: #ECD2A7;
+            text-decoration: none;
+            font-weight: 400;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .terms-section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ECD2A7;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: rgba(236, 210, 167, 0.9);
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: #ECD2A7;
+            text-decoration: underline;
+            transition: opacity 0.3s;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: rgba(236, 210, 167, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid #ECD2A7;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            background-color: #04132C;
+            border-top: 1px solid rgba(236, 210, 167, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            main {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            nav a {
+                margin-left: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .logo {
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 1rem;
+            }
+
+            main {
+                padding: 5rem 1rem 2rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+            }
+
+            nav {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            nav a {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="./Clarify_Logo.png" alt="Clarify">
+                </a>
+            </div>
+            <nav>
+                <a href="index.html#about">About</a>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1>利用規約</h1>
+
+        <div class="intro-text">
+            <p>本規約は、本アプリの利用条件、利用に関する必要な事項を定めたものです。本アプリを利用される場合は、以下の規約に同意の元ご利用ください。</p>
+        </div>
+
+        <div class="terms-section">
+            <h2>個人情報の取り扱い</h2>
+            <p>本サービスで預かりした情報は、個人情報保護法に従い厳格に取扱い致します。</p>
+        </div>
+
+        <div class="terms-section">
+            <h2>免責事項</h2>
+            <p>本アプリのご利用により生じたいかなる損害においても、Clarify運営は一切責任を負いません。</p>
+        </div>
+
+        <div class="terms-section">
+            <h2>情報の開示</h2>
+            <p>本サービスは、裁判所、警察、その他の行政機関に求められた場合、情報を開示することがございます。</p>
+        </div>
+
+        <div class="terms-section">
+            <h2>規約の変更</h2>
+            <p>本規約を必要に応じて予告なしに変更することがございます。</p>
+        </div>
+
+        <div class="terms-section">
+            <h2>運営情報</h2>
+            <p>問い合わせ: 以下のフォームよりお問い合わせをお願いいたします。<br>
+            <a href="https://docs.google.com/forms/d/12XfrV2TA8D-4Jh2qsW3mnquF1CV-VvxNTMeb2JdMpNs/edit" target="_blank">お問い合わせフォーム</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Clarify. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
